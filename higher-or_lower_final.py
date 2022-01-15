@@ -65,6 +65,7 @@ class Game(object):
             self.wrong()
 
     def correct(self):
+        self.freeze()
         self.updatemsglabel('You are correct!')
         self.score+=1
         self.updatescoreandlife(self.score)
@@ -74,8 +75,10 @@ class Game(object):
         else:
             self.revealcard(self.rand_card)
             self.root.after(2000,self.next)
+            self.root.after(2000,self.go)
 
     def wrong(self):
+        self.freeze()
         self.updatemsglabel('You are wrong!')
         self.life-=1
         self.updatescoreandlife(self.score)
@@ -85,6 +88,7 @@ class Game(object):
         else:
             self.revealcard(self.rand_card)
             self.root.after(2000,self.next)
+            self.root.after(2000,self.go)
 
     def initialize(self):
         self.curr_card=self.rand_card
@@ -99,6 +103,15 @@ class Game(object):
             return False
         else:
             return True
+    
+    def go(self):
+        self.highb['state']=ACTIVE
+        self.lowb['state']=ACTIVE
+    
+    def freeze(self):
+        self.highb['state']=DISABLED
+        self.lowb['state']=DISABLED
+        
 
     def end(self):
         self.highb['state']=DISABLED
