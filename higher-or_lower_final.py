@@ -59,7 +59,7 @@ class Game(object):
             self.wrong()
 
     def onclicklowb(self):
-        if not self.ishigher():
+        if self.islower():
             self.correct()
         else:
             self.wrong()
@@ -100,6 +100,13 @@ class Game(object):
         if self.cards_in_stack[self.curr_card]<self.cards_in_deck[self.rand_card]:
             return True
         elif self.cards_in_stack[self.curr_card]>self.cards_in_deck[self.rand_card]:
+            return False
+        else:
+            return True
+    def islower(self):
+        if self.cards_in_stack[self.curr_card]>self.cards_in_deck[self.rand_card]:
+            return True
+        elif self.cards_in_stack[self.curr_card]<self.cards_in_deck[self.rand_card]:
             return False
         else:
             return True
