@@ -70,7 +70,7 @@ class Game(object):
             self.wrong()
 
     def correct(self):
-        playsound("E:\simple-clean-logo-13775.mp3")
+        playsound("E:\S1.mp3")
         self.freeze()
         self.updatemsglabel('You are correct!')
         self.score+=1
@@ -84,7 +84,7 @@ class Game(object):
             self.root.after(2000,self.go)
 
     def wrong(self):
-        playsound("E:\simple-clean-logo-13775.mp3")
+        playsound("E:\Failure.mp3")
         self.freeze()
         self.updatemsglabel('You are wrong!')
         self.life-=1
