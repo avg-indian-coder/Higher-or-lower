@@ -151,18 +151,6 @@ class Game(object):
 root=Tk()
 root.title('Higher or Lower')
 root.geometry('600x600')
-#root["bg"] = "black"
-'''frame = Frame(root)
-T = Text(frame, height = 5, width = 52)
-l = Label(frame, text = "Fact of the Day")
-l.config(font =("Courier", 14))
-
-
-
-def start():
-    frame.destroy()
-
-b1 = Button(root, text = "Start Game",command=start())'''
 t1=Toplevel(root)
 t1.geometry('900x225')
 t1.title("Welcome to the Game")
