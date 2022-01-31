@@ -103,11 +103,16 @@ class Game(object):
             self.end()
         else:
             self.revealcard(self.rand_card)
+            self.lc=list(self.cards_in_stack.keys())
             self.root.after(2000,self.next)
             self.root.after(2000,self.go)
             if self.score%5==0 and self.score!=5:
                 def exchange_it():
+                    self.lc=list(self.cards_in_stack.keys())
                     self.score-=10
+                    for i in self.lc[-10::1]:
+                        self.cards_in_deck[i]=self.cards_in_stack[i]
+                        self.cards_in_stack.pop(i)
                     self.life+=1
                     self.updatescoreandlife(self.score)    
                     exchange.destroy()
